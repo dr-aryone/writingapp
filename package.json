@@ -1,0 +1,27 @@
+{
+  "name": "writeaway",
+  "version": "0.0.1",
+  "description": "Online novel writing app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saramarie/writingapp.git"
+  },
+  "keywords": [
+    "writing",
+    "novels"
+  ],
+  "author": "Sara Williams",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saramarie/writingapp/issues"
+  },
+  "homepage": "https://github.com/saramarie/writingapp#readme",
+  "devDependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3"
+  }
+}
