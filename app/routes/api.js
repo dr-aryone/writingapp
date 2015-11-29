@@ -5,6 +5,9 @@ router
   .route('/users/:userId')
   .get(function (req, res) {
     res.json({
+      "firstName": "Joe"
+    });
+    /*res.json({
       "_id": req.params.userId,
       "userName": "JoeSchmoe123",
       "firstName": "Joe",
@@ -13,10 +16,9 @@ router
       "books": [
         { "bookId": 1234, "title": "Some Cool Book" },
         { "bookId": 1235, "title": "New American Novel" },
-        { "bookId": 1236, "title": "Schmoe's Schmemoire" },
         { "bookId": 1237, "title": "Some Cool Book II - Electric Bugaboo" }
       ]
-    });
+    });*/
   });
 
 router

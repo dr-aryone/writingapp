@@ -19,7 +19,13 @@ module.exports = function (grunt) {
     },
 
     jshint: {
-      all: ['Gruntfile.js', 'public/js/**/*.js']
+      all: ['public/js/**/*.js']
+    },
+
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js'
+      }
     },
 
     open: {
@@ -34,7 +40,8 @@ module.exports = function (grunt) {
         tasks: ['sass']
       },
       js: {
-        files: 'public/js/**/*.js'
+        files: 'public/js/**/*.js',
+        tasks: ['jshint', 'karma']
       },
       views: {
         files: [
@@ -48,6 +55,6 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('default', ['sass']);
+  grunt.registerTask('default', ['jshint', 'karma', 'sass']);
   grunt.registerTask('serve', ['open', 'watch']);
 };
