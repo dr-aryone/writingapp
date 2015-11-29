@@ -1,0 +1,33 @@
+@import "../lib/bootstrap/scss/bootstrap";
+
+body {
+  padding-top: 50px;
+}
+
+// Shared
+.page {
+  margin-top: 2rem;
+}
+
+// Lander
+.hero-text {
+  @extend .display-3;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.hero-buttons {
+  text-align: center;
+
+  .btn {
+    margin: 0 0.5rem;
+  }
+}
+
+// Login & Register
+.logreg-form {
+  @extend .jumbotron;
+  margin: 2rem auto;
+  width: 40rem;
+}

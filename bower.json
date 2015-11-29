@@ -1,0 +1,29 @@
+{
+  "name": "writeaway",
+  "description": "Online novel writing app",
+  "main": "server.js",
+  "authors": [
+    "Sara Williams"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "writing",
+    "novels"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "fontawesome#~4.5.0",
+    "bootstrap": "bootstrap#~4",
+    "angular": "~1.4.8",
+    "angular-route": "~1.4.8"
+  }
+}

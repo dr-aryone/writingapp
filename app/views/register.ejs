@@ -1,0 +1,56 @@
+<% include partials/header %>
+
+<div class="container">
+  <div class="logreg-form">
+    <h1 class="display-1">
+      Register
+    </h1>
+
+    <hr>
+
+    <form action="/login">
+      <fieldset class="form-group row">
+        <label for="username" class="col-md-4 form-control-label">Username:</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control" id="username" name="username">
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group row">
+        <label for="firstname" class="col-md-4 form-control-label">First Name:</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control" id="firstname" name="firstname">
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group row">
+        <label for="lastname" class="col-md-4 form-control-label">Last Name:</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control" id="lastname" name="lastname">
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group row">
+        <label for="password" class="col-md-4 form-control-label">Password:</label>
+        <div class="col-md-8">
+          <input type="password" class="form-control" id="password" name="password">
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group row">
+        <label for="verify_pass" class="col-md-4 form-control-label">Verify Password:</label>
+        <div class="col-md-8">
+          <input type="password" class="form-control" id="verify_pass" name="verify_pass">
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group row">
+        <div class="col-md-offset-4 col-md-8">
+          <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+<% include partials/header %>

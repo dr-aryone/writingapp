@@ -22,6 +22,14 @@
   "homepage": "https://github.com/saramarie/writingapp#readme",
   "devDependencies": {
     "body-parser": "^1.14.1",
-    "express": "^4.13.3"
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-open": "^0.2.3",
+    "grunt-sass": "^1.1.0",
+    "load-grunt-tasks": "^3.3.0",
+    "time-grunt": "^1.2.2"
   }
 }

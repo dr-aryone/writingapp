@@ -2,11 +2,11 @@ var express = require('express'),
     router = express.Router();
 
 router.get('/', function (req, res) {
-  res.send('home page');
+  res.render('index');
 });
 
 router.get('/login', function (req, res) {
-  res.send('login');
+  res.render('login');
 });
 
 router.get('/logout', function (req, res) {
@@ -14,7 +14,7 @@ router.get('/logout', function (req, res) {
 });
 
 router.get('/register', function (req, res) {
-  res.send('register');
+  res.render('register');
 });
 
 router.get('/faq', function (req, res) {
