@@ -3,9 +3,9 @@
 
   angular
     .module('writeAway')
-    .controller('ScenesCtrl', [ScenesCtrl]);
+    .controller('BookCtrl', [BookCtrl]);
 
-  function ScenesCtrl () {
+  function BookCtrl () {
     //
   }
 }());

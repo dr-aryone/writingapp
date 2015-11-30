@@ -29,6 +29,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-karma": "^0.12.1",
     "grunt-open": "^0.2.3",
+    "grunt-protractor-runner": "^2.1.0",
     "grunt-sass": "^1.1.0",
     "jasmine": "^2.3.2",
     "jasmine-core": "^2.3.4",
@@ -37,6 +38,7 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "load-grunt-tasks": "^3.3.0",
     "phantomjs": "^1.9.19",
+    "protractor": "^3.0.0",
     "time-grunt": "^1.2.2"
   }
 }

@@ -18,6 +18,7 @@ module.exports = function(config) {
       'public/lib/angular/angular.js',
       'public/lib/angular-route/angular-route.js',
       'public/lib/angular-mocks/angular-mocks.js',
+      'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
       'public/js/**/*.js',
       'tests/unit/**/*.js'
     ],
@@ -64,7 +65,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // Concurrency level
     // how many browser should be started simultanous

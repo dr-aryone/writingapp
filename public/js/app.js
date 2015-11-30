@@ -3,7 +3,8 @@
 
   angular
     .module('writeAway', [
-      'ngRoute'
+      'ngRoute',
+      'ui.bootstrap'
     ])
     .config(appRouter);
 
@@ -17,12 +18,17 @@
       .when('/dashboard', {
         templateUrl:  'views/dashboard.html',
         controller:   'DashboardCtrl',
-        controllerAs: 'dash'
+        controllerAs: 'dash',
+        resolve: {
+          userInfo: function (dashboardService) {
+            return dashboardService.getUser('1234');
+          }
+        }
       })
-      .when('/scenes', {
-        templateUrl:  'views/scenes.html',
-        controller:   'ScenesCtrl',
-        controllerAs: 'scenes'
+      .when('/book/:bookId', {
+        templateUrl:  'views/book.html',
+        controller:   'BookCtrl',
+        controllerAs: 'book'
       })
       .when('/scenes/:sceneId', {
         templateUrl:  'views/scene-edit.html',

@@ -28,6 +28,18 @@ module.exports = function (grunt) {
       }
     },
 
+    protractor: {
+      options: {
+        configFile: 'protractor.conf.js',
+        keepAlive: true,
+        noColor: false
+      },
+      singlerun: {},
+      auto: {
+        keepAlive: true
+      }
+    },
+
     open: {
       dist: {
         path: 'http://localhost:3000'
@@ -55,6 +67,6 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('default', ['jshint', 'karma', 'sass']);
+  grunt.registerTask('default', ['jshint', 'karma', 'sass', 'protractor']);
   grunt.registerTask('serve', ['open', 'watch']);
 };

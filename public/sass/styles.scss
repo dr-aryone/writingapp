@@ -1,5 +1,8 @@
 @import "../lib/bootstrap/scss/bootstrap";
 
+$fa-font-path: "../lib/font-awesome/fonts";
+@import "../lib/font-awesome/scss/font-awesome";
+
 body {
   padding-top: 50px;
 }
@@ -30,4 +33,15 @@ body {
   @extend .jumbotron;
   margin: 2rem auto;
   width: 40rem;
+}
+
+// Accordion
+.panel-title a {
+  color: $body-color;
+  text-decoration: none;
+
+  &:active,
+  &:focus {
+    outline: 0;
+  }
 }

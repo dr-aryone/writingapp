@@ -1,4 +1,20 @@
-<div class="container page">
-  <h1>Welcome, <em>Joe Schmoe</em>!</h1>
+<div id="dashboard" class="container page">
+  <h1>Welcome, <span id="user_name"><em>{{ dash.userInfo.firstName }} {{ dash.userInfo.lastName }}</em></span>!</h1>
   <hr>
+
+  <h2>Your Books</h2>
+
+  <uib-accordion close-others="dash.oneAtATime">
+    <uib-accordion-group ng-repeat="book in dash.userInfo.books" is-open="book.open">
+      <uib-accordion-heading>
+        <i class="fa fa-times" click-override ng-click="dash.deleteBook(book.bookId)"></i>
+        <i class="fa fa-pencil" click-override ng-click="dash.editBook(book.bookId)"></i>
+        {{ book.title }}
+        <i class="fa pull-right" ng-class="{ 'fa-chevron-right': !book.open, 'fa-chevron-down': book.open }"></i>
+      </uib-accordion-heading>
+
+      {{ book.summary }}
+    </uib-accordion-group>
+  </uib-accordion>
+
 </div>
