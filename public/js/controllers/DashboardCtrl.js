@@ -3,9 +3,9 @@
 
   angular
     .module('writeAway')
-    .controller('DashboardCtrl', ['userInfo', DashboardCtrl]);
+    .controller('DashboardCtrl', ['userInfo', 'dashboardService', DashboardCtrl]);
 
-  function DashboardCtrl (userInfo) {
+  function DashboardCtrl (userInfo, dashboardService) {
     // Method Declarations
     this.editBook = editBook;
     this.deleteBook = deleteBook;
@@ -17,12 +17,16 @@
 
 
     // Method Definitions
-    function editBook (bookId) {
-      console.log('Edit book ID ' + bookId);
+    function editBook (book) {
+      console.log('Edit book ID ' + book.bookId);
     }
 
-    function deleteBook (bookId) {
-      console.log('Delete book ID ' + bookId);
+    function deleteBook (book) {
+      dashboardService.deleteBook(this.userInfo.books, book).then(function (res) {
+        console.log(res);
+      }, function () {
+        console.log('there was an error deleting book ' + book.bookId);
+      });
     }
   }
 }());

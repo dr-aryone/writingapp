@@ -30,6 +30,14 @@ router
   });
 
 router
+  .route('/books')
+  .delete(function (req, res) {
+    res.json({
+      "msg": "book " + req.body.bookId + " was deleted"
+    });
+  });
+
+router
   .route('/books/:bookId')
   .get(function (req, res) {
     res.json({

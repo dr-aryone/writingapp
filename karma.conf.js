@@ -19,6 +19,7 @@ module.exports = function(config) {
       'public/lib/angular-route/angular-route.js',
       'public/lib/angular-mocks/angular-mocks.js',
       'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
+      'public/lib/underscore/underscore.js',
       'public/js/**/*.js',
       'tests/unit/**/*.js'
     ],
