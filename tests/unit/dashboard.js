@@ -93,8 +93,6 @@ describe('Dashboard service', function () {
   describe('deleteBook method', function () {
     it('should respond that the book was deleted', function () {
       dashboardService.deleteBook(userBooks, bookObj).then(function (res) {
-        //console.log(res.bookId);
-        //console.log(bookObj.bookId);
         expect(res.bookId).toEqual(bookObj.bookId);
       });
     });

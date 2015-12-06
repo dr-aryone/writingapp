@@ -25,7 +25,7 @@
           }
         }
       })
-      .when('/book/:bookId', {
+      .when('/books/:bookId', {
         templateUrl:  'views/book.html',
         controller:   'BookCtrl',
         controllerAs: 'book'

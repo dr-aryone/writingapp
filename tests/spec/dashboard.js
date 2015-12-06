@@ -12,8 +12,19 @@ describe('dashboard', function () {
   });
 
   it('should display the user\'s books', function () {
-    element.all(by.repeater('book in dash.userInfo.books')).count().then(function(count) {
+    element.all(by.repeater('book in dash.userInfo.books')).count().then(function (count) {
       expect(count).toBeGreaterThan(0);
+    });
+  });
+
+  it('should have a button that deletes a book', function () {
+    element.all(by.repeater('book in dash.userInfo.books')).count().then(function (count) {
+      var btn = element.all(by.css('.delete-book')).get(0);
+      btn.click();
+
+      element.all(by.repeater('book in dash.userInfo.books')).count().then(function (newCount) {
+        expect(newCount).toEqual(count - 1);
+      });
     });
   });
 });

@@ -3,9 +3,9 @@
 
   angular
     .module('writeAway')
-    .controller('DashboardCtrl', ['userInfo', 'dashboardService', DashboardCtrl]);
+    .controller('DashboardCtrl', ['userInfo', 'dashboardService', '$location', DashboardCtrl]);
 
-  function DashboardCtrl (userInfo, dashboardService) {
+  function DashboardCtrl (userInfo, dashboardService, $location) {
     // Method Declarations
     this.editBook = editBook;
     this.deleteBook = deleteBook;
@@ -18,11 +18,11 @@
 
     // Method Definitions
     function editBook (book) {
-      console.log('Edit book ID ' + book.bookId);
+      $location.path('/books/' + book.bookId);
     }
 
-    function deleteBook (book) {
-      dashboardService.deleteBook(this.userInfo.books, book).then(function (res) {
+    function deleteBook (book, booksList) {
+      dashboardService.deleteBook(booksList, book).then(function (res) {
         console.log(res);
       }, function () {
         console.log('there was an error deleting book ' + book.bookId);
