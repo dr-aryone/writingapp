@@ -1,0 +1,12 @@
+<div class="modal-header">
+  <h3 class="modal-title">Confirm {{ confirm.settings.action }}</h3>
+</div>
+
+<div class="modal-body">
+  Are you sure that you want to delete <strong>{{ confirm.settings.itemName }}</strong>?
+</div>
+
+<div class="modal-footer">
+  <button class="btn" ng-class="{ 'btn-danger': confirm.isDelete, 'btn-primary': !confirm.isDelete }" id="confirm_yes" type="button" ng-click="confirm.ok()">Yes</button>
+  <button class="btn btn-secondary" id="confirm_no" type="button" ng-click="confirm.cancel()">No</button>
+</div>

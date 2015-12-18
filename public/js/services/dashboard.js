@@ -7,9 +7,14 @@
 
   function dashboardService ($http) {
     var methods = {
+      createBook: createBook,
       deleteBook: deleteBook,
       getUser: getUser
     };
+
+    function createBook (bookObj) {
+      return $http.post('/api/v1/books', bookObj);
+    }
 
     function deleteBook (userBooks, bookObj) {
       return $http.delete('/api/v1/books', bookObj.bookId).then(function (res) {

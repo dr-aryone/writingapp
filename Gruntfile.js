@@ -34,10 +34,7 @@ module.exports = function (grunt) {
         keepAlive: true,
         noColor: false
       },
-      singlerun: {},
-      auto: {
-        keepAlive: true
-      }
+      singlerun: {}
     },
 
     open: {

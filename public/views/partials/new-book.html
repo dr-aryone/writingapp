@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <h3 class="modal-title">Create a New Book</h3>
+</div>
+
+<div class="modal-body">
+  <fieldset class="form-group">
+    <label for="new_title">Title:</label>
+    <input class="form-control" type="text" id="new_title" ng-model="newBook.title" placeholder="My New Book's Adventure">
+  </fieldset>
+
+  <fieldset class="form-group">
+    <label for="new_description">Description or Synopsis:</label>
+    <textarea class="form-control" id="new_description" ng-model="newBook.description"></textarea>
+  </fieldset>
+</div>
+
+<div class="modal-footer">
+  <button class="btn btn-primary" type="button" id="new_submit" ng-click="newBook.submit(newBook.title, newBook.description)">Create Book</button>
+  <button class="btn btn-secondary" type="button" id="new_cancel" ng-click="newBook.cancel()">Cancel</button>
+</div>

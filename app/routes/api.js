@@ -31,6 +31,14 @@ router
 
 router
   .route('/books')
+  .post(function (req, res) {
+    console.log('wut');
+    res.json({
+      "bookId": 1238,
+      "title": "My New Novel's Adventure",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    });
+  })
   .delete(function (req, res) {
     res.json({
       "msg": "book " + req.body.bookId + " was deleted"

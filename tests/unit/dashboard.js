@@ -64,6 +64,7 @@ describe('Dashboard service', function () {
       httpBackend = $httpBackend;
       httpBackend.when('GET', '/api/v1/users/' + userId).respond(respondGetUser);
       httpBackend.when('DELETE', '/api/v1/books').respond(bookObj);
+      httpBackend.when('POST', '/api/v1/books').respond(bookObj);
     });
   });
 
@@ -94,6 +95,14 @@ describe('Dashboard service', function () {
     it('should respond that the book was deleted', function () {
       dashboardService.deleteBook(userBooks, bookObj).then(function (res) {
         expect(res.bookId).toEqual(bookObj.bookId);
+      });
+    });
+  });
+
+  describe('createBook method', function () {
+    it('should respond with the new book', function () {
+      dashboardService.createBook(bookObj).then(function (res) {
+        expect(res.data.bookId).toEqual(bookObj.bookId);
       });
     });
   });
