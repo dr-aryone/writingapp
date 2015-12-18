@@ -34,6 +34,7 @@
       modalInstance.result.then(function (newBook) {
         if (newBook) {
           dashboardService.createBook(newBook).then(function (res) {
+            booksList.push(res.data);
             pushMsg(messages, 'success', 'Hooray! Your new book, "' + res.data.title + '" was successfully created.');
           }, function () {
             pushMsg(messages, 'danger', 'What a downer, but we failed to create your book. Try again?');
@@ -49,23 +50,22 @@
     }
 
     function confirmDelete (book, booksList) {
-      var messages = this.messages;
-
-      var modalInstance = $uibModal.open({
-        animation:    true,
-        templateUrl:  'views/partials/confirm-box.html',
-        controller:   'ConfirmCtrl',
-        controllerAs: 'confirm',
-        size:         'sm',
-        resolve: {
-          settings: function () {
-            return {
-              action: 'delete',
-              itemName: book.title
-            };
-          }
-        }
-      });
+      var messages = this.messages,
+          modalInstance = $uibModal.open({
+            animation:    true,
+            templateUrl:  'views/partials/confirm-box.html',
+            controller:   'ConfirmCtrl',
+            controllerAs: 'confirm',
+            size:         'sm',
+            resolve: {
+              settings: function () {
+                return {
+                  action: 'delete',
+                  itemName: book.title
+                };
+              }
+            }
+          });
 
       modalInstance.result.then(function (confirmed) {
         if (confirmed) {
