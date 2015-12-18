@@ -12,6 +12,11 @@ body {
   margin-top: 2rem;
 }
 
+// Override bad BSv4 styles
+.form-control-label {
+  padding: 0;
+}
+
 // Lander
 .hero-text {
   @extend .display-3;

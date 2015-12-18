@@ -1,4 +1,8 @@
 <div id="dashboard" class="container page">
+  <uib-alert ng-repeat="msg in dash.messages" type="{{ msg.type }}" ng-show="dash.messages" close="dash.closeMsg($index)">
+    {{ msg.text }}
+  </uib-alert>
+
   <h1>
     Welcome, <span id="user_name"><em>{{ dash.userInfo.firstName }} {{ dash.userInfo.lastName }}</em></span>!
 

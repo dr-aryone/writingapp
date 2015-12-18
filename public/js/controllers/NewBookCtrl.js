@@ -3,6 +3,8 @@ angular
   .controller('NewBookCtrl', ['$uibModalInstance', NewBookCtrl]);
 
 function NewBookCtrl ($uibModalInstance) {
+  this.error = null;
+
   this.cancel = cancel;
   this.submit = submit;
 
@@ -11,7 +13,13 @@ function NewBookCtrl ($uibModalInstance) {
   }
 
   function submit (title, description) {
-    var newBook = { title: title, summary: description };
-    $uibModalInstance.close(newBook);
+    var newBook = null;
+
+    if (title) {
+      newBook = { title: title, summary: description };
+      $uibModalInstance.close(newBook);
+    } else {
+      this.error = 'Oops! You forgot a title.';
+    }
   }
 }

@@ -6534,6 +6534,9 @@ body {
 .page {
   margin-top: 2rem; }
 
+.form-control-label {
+  padding: 0; }
+
 .hero-text {
   padding-bottom: 2rem;
   margin-bottom: 2rem;
