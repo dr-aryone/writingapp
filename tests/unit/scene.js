@@ -20,6 +20,7 @@ describe('scene', function () {
       sceneService = _sceneService_;
       httpBackend = $httpBackend;
       httpBackend.when('GET', '/api/v1/scenes/' + sceneId).respond(respondGetScene);
+      httpBackend.when('POST', '/api/v1/scenes/' + sceneId).respond(respondGetScene);
     });
   });
 
@@ -32,6 +33,16 @@ describe('scene', function () {
   describe('getSceneContent method', function () {
     it('should return data for the book', function () {
       sceneService.getSceneContent(sceneId).then(function (res) {
+        expect(res.data).toBeDefined();
+        expect(typeof res.data).toBe('object');
+        expect(res.data).toEqual(respondGetScene);
+      });
+    });
+  });
+
+  describe('saveScene method', function () {
+    it('should return the saved scene content', function () {
+      sceneService.saveScene(sceneId).then(function (res) {
         expect(res.data).toBeDefined();
         expect(typeof res.data).toBe('object');
         expect(res.data).toEqual(respondGetScene);

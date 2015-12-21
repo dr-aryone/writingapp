@@ -1,4 +1,8 @@
 <div class="container page" id="{{ scene.pageId }}">
+  <uib-alert ng-repeat="msg in scene.messages" type="{{ msg.type }}" ng-show="scene.messages" close="scene.closeMsg($index)">
+    {{ msg.text }}
+  </uib-alert>
+
   <h1>Scene Editor</h1>
   <hr>
 
@@ -8,12 +12,18 @@
   </div>
 
   <div class="form-group">
-    <textarea class="form-control" id="text_editor">{{ scene.content.contents }}</textarea>
+    <textarea class="form-control" id="text_editor" ui-tinymce ng-model="scene.content.contents"></textarea>
   </div>
 
-  <button type="button" class="btn btn-primary" id="save_scene">
-    <i class="fa fa-save" ng-hide="scene.isSaving"></i>
-    <i class="fa fa-cog fa-spinner" ng-show="scene.isSaving"></i>
-    Save
-  </button>
+  <div class="form-group pull-right">
+    <button type="button" class="btn btn-secondary" ng-click="scene.cancel()">
+      Cancel
+    </button>
+
+    <button type="button" class="btn btn-primary" id="save_scene" ng-click="scene.save(scene.content)">
+      <i class="fa fa-save" ng-hide="scene.isSaving"></i>
+      <i class="fa fa-cog fa-spin" ng-show="scene.isSaving"></i>
+      Save
+    </button>
+  </div>
 </div>

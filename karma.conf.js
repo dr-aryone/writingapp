@@ -17,12 +17,14 @@ module.exports = function(config) {
     files: [
       'public/lib/jquery/dist/jquery.js',
       'public/lib/jquery-ui/jquery-ui.js',
+      'public/lib/tinymce-dist/tinymce..js',
       'public/lib/angular/angular.js',
       'public/lib/angular-route/angular-route.js',
       'public/lib/angular-mocks/angular-mocks.js',
       'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
       'public/lib/underscore/underscore.js',
       'public/lib/angular-ui-sortable/sortable.js',
+      'public/lib/angular-ui-tinymce/src/tinymce.js',
       'public/js/**/*.js',
       'tests/unit/**/*.js'
     ],

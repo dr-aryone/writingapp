@@ -5,7 +5,8 @@
     .module('writeAway', [
       'ngRoute',
       'ui.bootstrap',
-      'ui.sortable'
+      'ui.sortable',
+      'ui.tinymce'
     ])
     .config(appRouter);
 

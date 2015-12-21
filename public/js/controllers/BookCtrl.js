@@ -21,10 +21,6 @@
     this.messages = [];
 
 
-    // attaching services to the controller
-    this.bookService = bookService;
-
-
     // method Definitions
     function closeMsg (index) {
       this.messages.splice(index, 1);
@@ -75,19 +71,17 @@
 
       msgList.push(newMessage);
     }
-  }
 
-  function saveChanges (book, bookId) {
-    var self = this,
-        isSaving = this.isSaving,
-        messages = this.messages;
+    function saveChanges (book, bookId) {
+      var self = this;
 
-    this.bookService.saveBook(book, bookId).then(function (res) {
-      self.pushMsg(messages, 'success', 'Your book\'s changes were successfully saved.');
-      isSaving = false;
-    }, function (res) {
-      self.pushMsg(messages, 'danger', 'There was a problem saving the changes to your book.');
-      isSaving = false;
-    });
+      bookService.saveBook(book, bookId).then(function (res) {
+        self.pushMsg(messages, 'success', 'Your book\'s changes were successfully saved.');
+        isSaving = false;
+      }, function (res) {
+        self.pushMsg(messages, 'danger', 'There was a problem saving the changes to your book.');
+        isSaving = false;
+      });
+    }
   }
 }());

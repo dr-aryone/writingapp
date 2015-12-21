@@ -18,7 +18,7 @@ describe('Scene editor', function () {
   });
 
   it('should load the text editor box', function () {
-    var editor = element(by.id('text_editor'));
+    var editor = element(by.css('.mce-tinymce'));
     expect(editor.isPresent()).toBeTruthy();
   });
 
