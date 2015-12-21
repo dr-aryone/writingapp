@@ -39,12 +39,17 @@
       .when('/scenes/new', {
         templateUrl:  'views/scene-edit.html',
         controller:   'SceneNewCtrl',
-        controllerAs: 'newScene'
+        controllerAs: 'scene'
       })
       .when('/scenes/:sceneId', {
         templateUrl:  'views/scene-edit.html',
         controller:   'SceneEditCtrl',
-        controllerAs: 'scene'
+        controllerAs: 'scene',
+        resolve: {
+          sceneContent: function ($route, sceneService) {
+            return sceneService.getSceneContent($route.current.params.sceneId);
+          }
+        }
       })
       .otherwise({ redirectTo: '/' });
   }

@@ -3,9 +3,10 @@
 
   angular
     .module('writeAway')
-    .controller('SceneEditCtrl', [SceneEditCtrl]);
+    .controller('SceneEditCtrl', ['sceneContent', SceneEditCtrl]);
 
-  function SceneEditCtrl () {
-    //
+  function SceneEditCtrl (sceneContent) {
+    this.content = sceneContent.data;
+    this.pageId = 'scene_edit';
   }
 }());
