@@ -32,7 +32,6 @@ router
 router
   .route('/books')
   .post(function (req, res) {
-    console.log('wut');
     res.json({
       "bookId": 1238,
       "title": "My New Novel's Adventure",
@@ -47,15 +46,40 @@ router
 
 router
   .route('/books/:bookId')
-  .get(function (req, res) {
+  .post(function (req, res) {
     res.json({
       "_id": req.params.bookId,
-      "title": "Some Cool Book",
+      "title": "Some Cool Book #" + req.params.bookId,
       "scenes": [
         { "sceneId": 123, "title": "Schmoe Goes to School", "wordCount": 200 },
         { "sceneId": 124, "title": "Cool Action Scene", "wordCount": 800 },
         { "sceneId": 125, "title": "Flashback", "wordCount": 250 }
       ]
+    });
+  })
+  .get(function (req, res) {
+    res.json({
+      "_id": req.params.bookId,
+      "title": "Some Cool Book #" + req.params.bookId,
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "scenes": [
+        { "sceneId": 123, "title": "Schmoe Goes to School", "wordCount": 200 },
+        { "sceneId": 124, "title": "Cool Action Scene", "wordCount": 800 },
+        { "sceneId": 125, "title": "Flashback", "wordCount": 250 }
+      ]
+    });
+  });
+
+router
+  .route('/scenes')
+  .post(function (req, res) {
+    res.json({
+      "sceneId": 126, "title": "My Totally New Scene!", "wordCount": 0
+    });
+  })
+  .delete(function (req, res) {
+    res.json({
+      "msg": "scene " + req.body.sceneId + " was deleted"
     });
   });
 

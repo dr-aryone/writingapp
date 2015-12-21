@@ -1,4 +1,42 @@
-<div class="container page">
-  <h1>Scenes for <em>Dairy of a Schmoe Man</em></h1>
+<div id="book_editor" class="container page">
+  <uib-alert ng-repeat="msg in book.messages" type="{{ msg.type }}" ng-show="book.messages" close="book.closeMsg($index)">
+    {{ msg.text }}
+  </uib-alert>
+
+  <h1 id="book_title">
+    Editing Book: <em>{{ book.info.title }}</em>
+
+    <div class="pull-right">
+      <a href="/#/scenes/new" class="btn btn-secondary" id="add_scene">
+        <i class="fa fa-plus"></i>
+        New Scene
+      </a>
+
+      <button class="btn btn-primary" type="button" id="save_book" ng-click="book.saveChanges(book.info, book.bookId)">
+        <i class="fa fa-save" ng-hide="book.isSaving"></i>
+        <i class="fa fa-cog fa-spin" ng-show="book.isSaving"></i>
+        Save Changes
+      </button>
+    </div>
+  </h1>
   <hr>
+
+  <h2>Description</h2>
+
+  <textarea class="form-control" id="book_description">{{ book.info.summary }}</textarea>
+
+  <br>
+
+  <h2>Scenes</h2>
+
+  <ul class="list-unstyled" ui-sortable ng-model="book.info.scenes">
+    <li ng-repeat="scene in book.info.scenes">
+      <h4>
+        <i class="fa fa-times delete-scene" ng-click="book.confirmDelete(scene, book.info.scenes)"></i>
+        <a ng-href="/#/scenes/{{ scene.sceneId }}"><i class="fa fa-pencil"></i></a>
+        {{ scene.title }}
+        <small class="pull-right"><strong>Word Count:</strong> {{ scene.wordCount }}</small>
+      </h4>
+    </li>
+  </ul>
 </div>

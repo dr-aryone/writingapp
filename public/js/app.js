@@ -4,7 +4,8 @@
   angular
     .module('writeAway', [
       'ngRoute',
-      'ui.bootstrap'
+      'ui.bootstrap',
+      'ui.sortable'
     ])
     .config(appRouter);
 
@@ -28,7 +29,17 @@
       .when('/books/:bookId', {
         templateUrl:  'views/book.html',
         controller:   'BookCtrl',
-        controllerAs: 'book'
+        controllerAs: 'book',
+        resolve: {
+          bookInfo: function ($route, bookService) {
+            return bookService.getBookInfo($route.current.params.bookId);
+          }
+        }
+      })
+      .when('/scenes/new', {
+        templateUrl:  'views/scene-edit.html',
+        controller:   'SceneNewCtrl',
+        controllerAs: 'newScene'
       })
       .when('/scenes/:sceneId', {
         templateUrl:  'views/scene-edit.html',

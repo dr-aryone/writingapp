@@ -15,11 +15,14 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'public/lib/jquery/dist/jquery.js',
+      'public/lib/jquery-ui/jquery-ui.js',
       'public/lib/angular/angular.js',
       'public/lib/angular-route/angular-route.js',
       'public/lib/angular-mocks/angular-mocks.js',
       'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
       'public/lib/underscore/underscore.js',
+      'public/lib/angular-ui-sortable/sortable.js',
       'public/js/**/*.js',
       'tests/unit/**/*.js'
     ],

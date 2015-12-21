@@ -3,11 +3,16 @@ angular
   .controller('NewBookCtrl', ['$uibModalInstance', NewBookCtrl]);
 
 function NewBookCtrl ($uibModalInstance) {
-  this.error = null;
-
+  // method declarations
   this.cancel = cancel;
   this.submit = submit;
 
+
+  // variable declarations
+  this.error = null;
+
+
+  // method definitions
   function cancel () {
     $uibModalInstance.close(false);
   }
