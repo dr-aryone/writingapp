@@ -17,13 +17,17 @@ router
 router
   .route('/books')
   .get(books.listBooks)
-  .post(books.createBook)
-  .delete(books.deleteBook);
+  .post(books.createBook);
+
+router
+  .route('/books/all')
+  .get(books.listAllBooks);
 
 router
   .route('/books/:bookId')
   .post(books.updateBook)
-  .get(books.loadBook);
+  .get(books.loadBook)
+  .delete(books.deleteBook);
 
 router
   .route('/scenes')

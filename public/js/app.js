@@ -4,6 +4,7 @@
   angular
     .module('writeAway', [
       'ngRoute',
+      'ngCookies',
       'ui.bootstrap',
       'ui.sortable',
       'ui.tinymce'

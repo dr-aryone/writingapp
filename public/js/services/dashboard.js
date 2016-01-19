@@ -17,7 +17,9 @@
     }
 
     function deleteBook (userBooks, bookObj) {
-      return $http.delete('/api/v1/books', bookObj.bookId).then(function (res) {
+      console.log(bookObj.bookId);
+      return $http.delete('/api/v1/books/' + bookObj.bookId).then(function (res) {
+        console.log(res);
         var book = _.findWhere(userBooks, { bookId: bookObj.bookId });
         return userBooks.splice(userBooks.indexOf(book), 1)[0];
       });

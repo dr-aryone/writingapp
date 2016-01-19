@@ -1,6 +1,14 @@
 var Book = require('mongoose').model('Book');
 
 exports.listBooks = function (req, res) {
+  if (req.user) {
+    Book.findById(req.user._id, function (err, books) {
+      res.status(200).json(books);
+    });
+  }
+};
+
+exports.listAllBooks = function (req, res) {
   Book
     .find({})
     .populate('author')
@@ -27,9 +35,18 @@ exports.createBook = function (req, res) {
 };
 
 exports.deleteBook = function (req, res) {
-  res.json({
-    "msg": "book " + req.body.bookId + " was deleted"
-  });
+  console.log(req.params.bookId);
+  console.log(req.user);
+
+  if (req.user && req.params.bookId) {
+    Book.remove({ _id: req.params.bookId }, function (err) {
+      if (err) {
+        res.status(500).json({ error: err });
+      }
+
+      res.status(200).json({ "msg": "book " + req.params.bookId + " was deleted" });
+    });
+  }
 };
 
 exports.updateBook = function (req, res) {

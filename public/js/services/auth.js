@@ -3,9 +3,9 @@
 
   angular
     .module('writeAway')
-    .factory('authService', ['$q', '$timeout', '$http', authService]);
+    .factory('authService', ['$q', '$timeout', '$http', '$cookies', authService]);
 
-  function authService ($q, $timeout, $http) {
+  function authService ($q, $timeout, $http, $cookies) {
     var user = null;
 
     function isLoggedIn () {
@@ -21,7 +21,8 @@
     }
 
     function getUserId () {
-      return user._id;
+      var userCookie = $cookies.getObject('user');
+      return userCookie._id;
     }
 
     function login (username, password) {
@@ -32,6 +33,7 @@
         .success(function (data) {
           if (data.status) {
             user = data.user;
+            $cookies.putObject('user', user);
             deferred.resolve();
           } else {
             user = false;

@@ -30,6 +30,7 @@
     "angular-bootstrap": "~0.14.3",
     "angular-ui-sortable": "~0.13.4",
     "jquery-ui": "~1.11.4",
-    "angular-ui-tinymce": "latest"
+    "angular-ui-tinymce": "latest",
+    "angular-cookies": "~1.4.8"
   }
 }
