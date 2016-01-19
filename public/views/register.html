@@ -1,5 +1,3 @@
-<% include partials/header %>
-
 <div class="container">
   <div class="logreg-form">
     <h1 class="display-1">
@@ -8,46 +6,46 @@
 
     <hr>
 
-    <form action="/api/v1/users" method="post">
+    <form ng-submit="register.regUser()">
       <fieldset class="form-group row">
         <label for="username" class="col-md-4 form-control-label">Username:</label>
         <div class="col-md-8">
-          <input type="text" class="form-control" id="username" name="username">
+          <input type="text" class="form-control" id="username" name="username" ng-model="register.form.username">
         </div>
       </fieldset>
 
       <fieldset class="form-group row">
         <label for="firstname" class="col-md-4 form-control-label">First Name:</label>
         <div class="col-md-8">
-          <input type="text" class="form-control" id="firstname" name="firstName">
+          <input type="text" class="form-control" id="firstname" name="firstName"ng-model="register.form.firstName">
         </div>
       </fieldset>
 
       <fieldset class="form-group row">
         <label for="lastname" class="col-md-4 form-control-label">Last Name:</label>
         <div class="col-md-8">
-          <input type="text" class="form-control" id="lastname" name="lastName">
+          <input type="text" class="form-control" id="lastname" name="lastName"ng-model="register.form.lastName">
         </div>
       </fieldset>
 
       <fieldset class="form-group row">
         <label for="email" class="col-md-4 form-control-label">Email:</label>
         <div class="col-md-8">
-          <input type="text" class="form-control" id="email" name="email">
+          <input type="text" class="form-control" id="email" name="email" ng-model="register.form.email">
         </div>
       </fieldset>
 
       <fieldset class="form-group row">
         <label for="password" class="col-md-4 form-control-label">Password:</label>
         <div class="col-md-8">
-          <input type="password" class="form-control" id="password" name="password">
+          <input type="password" class="form-control" id="password" name="password" ng-model="register.form.password">
         </div>
       </fieldset>
 
       <fieldset class="form-group row">
         <label for="verify_pass" class="col-md-4 form-control-label">Verify Password:</label>
         <div class="col-md-8">
-          <input type="password" class="form-control" id="verify_pass" name="verify_pass">
+          <input type="password" class="form-control" id="verify_pass" name="verifyPass" ng-model="register.form.verifyPass">
         </div>
       </fieldset>
 
@@ -59,5 +57,3 @@
     </form>
   </div>
 </div>
-
-<% include partials/header %>

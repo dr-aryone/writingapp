@@ -6,6 +6,8 @@
     .controller('BookCtrl', ['bookInfo', '$uibModal', 'bookService', BookCtrl]);
 
   function BookCtrl (bookInfo, $uibModal, bookService) {
+    /*jshint validthis:true */
+    
     // method declarations
     this.closeMsg = closeMsg;
     this.confirmDelete = confirmDelete;

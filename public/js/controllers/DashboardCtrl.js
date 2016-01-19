@@ -6,12 +6,15 @@
     .controller('DashboardCtrl', ['userInfo', 'dashboardService', '$location', '$uibModal', DashboardCtrl]);
 
   function DashboardCtrl (userInfo, dashboardService, $location, $uibModal) {
+    /*jshint validthis:true */
+
     // Method Declarations
     this.addBook = addBook;
     this.closeMsg = closeMsg;
     this.confirmDelete = confirmDelete;
     this.deleteBook = deleteBook;
     this.editBook = editBook;
+    getBookList = getBookList;
     this.pushMsg = pushMsg;
 
 
@@ -19,6 +22,7 @@
     this.messages = [];
     this.oneAtATime = true;
     this.userInfo = userInfo.data;
+    this.userInfo.books = getBookList(userInfo.data);
 
 
     // Method Definitions
@@ -88,6 +92,14 @@
 
     function editBook (book) {
       $location.path('/books/' + book.bookId);
+    }
+
+    function getBookList (userInfo) {
+      if (userInfo.hasOwnProperty('books') && Array.isArray(userInfo.books)) {
+        return userInfo.books;
+      } else {
+        return [];
+      }
     }
 
     function pushMsg (msgList, type, msg) {

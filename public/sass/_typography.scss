@@ -1,0 +1,33 @@
+h1 {
+  font-family: Bitter, serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.button {
+  @extend .btn;
+  color: #393E41;
+  //background-color: #ECECEC;
+  font-family: 'Lato', sans-serif;
+  border-color: transparent;
+}
+
+.button--primary {
+  @extend .btn-primary;
+  color: #fff;
+  //background-color: #3F88C5;
+}
+
+.user-greet {
+  font-style: italic;
+  font-weight: 700;
+}
+
+.section-title {
+  margin-top: 2rem;
+}

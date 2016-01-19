@@ -1,16 +1,50 @@
-@import "../lib/bootstrap/scss/bootstrap";
-
+// fonts
 $fa-font-path: "../lib/font-awesome/fonts";
 @import "../lib/font-awesome/scss/font-awesome";
+@import url(https://fonts.googleapis.com/css?family=Courgette|Lato|Bitter:400,400italic,700);
 
-body {
-  padding-top: 50px;
-}
+// bootstrap
+$brand-primary: #3FC5A6;
+@import "../lib/bootstrap/scss/mixins/grid";
+@import "../lib/bootstrap/scss/bootstrap";
 
-// Shared
+// partials
+@import "typography";
+@import "navbar";
+
+// page and body
 .page {
+  @include make-container();
+  max-width: 1200px;
   margin-top: 2rem;
 }
+
+body {
+  color: #393E41;
+  font-family: Lato, sans-serif;
+  padding-top: 72px;
+}
+
+// dashboard
+.panel {
+  background: #E1E4E6;
+  margin-bottom: 1rem;
+  border-radius: 3px;
+}
+
+.panel-title {
+  font-size: 1.3rem;
+  padding: 0.5rem;
+  margin-bottom: 0;
+}
+
+.panel-body {
+  background-color: #fff;
+  padding: 0.5rem;
+  border: 1px solid #E1E4E6;
+  border-radius: 3px;
+}
+
 
 // Override bad BSv4 styles
 .form-control-label {

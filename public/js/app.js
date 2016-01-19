@@ -8,7 +8,17 @@
       'ui.sortable',
       'ui.tinymce'
     ])
+    //.run(appRuntime)
     .config(appRouter);
+
+  function appRuntime ($rootScope, $location, $route, authService) {
+    $rootScope
+      .$on('$routeChangeStart', function (event, next, current) {
+        if (authService.isLoggedIn() === false) {
+          $location.path('/login');
+        }
+      });
+  }
 
   function appRouter ($routeProvider) {
     $routeProvider
@@ -17,13 +27,23 @@
         controller:   'LanderCtrl',
         controllerAs: 'lander'
       })
+      .when('/login', {
+        templateUrl:  'views/login.html',
+        controller:   'LoginCtrl',
+        controllerAs: 'login'
+      })
+      .when('/register', {
+        templateUrl:  'views/register.html',
+        controller:   'RegisterCtrl',
+        controllerAs: 'register'
+      })
       .when('/dashboard', {
         templateUrl:  'views/dashboard.html',
         controller:   'DashboardCtrl',
         controllerAs: 'dash',
         resolve: {
-          userInfo: function (dashboardService) {
-            return dashboardService.getUser('1234');
+          userInfo: function (dashboardService, authService) {
+            return dashboardService.getUser(authService.getUserId());
           }
         }
       })

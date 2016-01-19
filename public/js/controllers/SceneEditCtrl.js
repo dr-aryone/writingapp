@@ -6,6 +6,8 @@
     .controller('SceneEditCtrl', ['sceneContent', 'sceneService', '$window', SceneEditCtrl]);
 
   function SceneEditCtrl (sceneContent, sceneService, $window) {
+    /*jshint validthis:true */
+    
     // method declarations
     this.cancel = cancel;
     this.closeMsg = closeMsg;

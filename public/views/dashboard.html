@@ -1,19 +1,19 @@
-<div id="dashboard" class="container page">
+<div id="dashboard" class="page">
   <uib-alert ng-repeat="msg in dash.messages" type="{{ msg.type }}" ng-show="dash.messages" close="dash.closeMsg($index)">
     {{ msg.text }}
   </uib-alert>
 
   <h1>
-    Welcome, <span id="user_name"><em>{{ dash.userInfo.firstName }} {{ dash.userInfo.lastName }}</em></span>!
+    Welcome, <span class="user-greet" id="user_name">{{ dash.userInfo.firstName }} {{ dash.userInfo.lastName }}</span>!
 
-    <button class="btn btn-secondary pull-right" type="button" id="add_book" ng-click="dash.addBook(dash.userInfo.books)">
+    <button class="btn-sm button button--primary pull-right" type="button" id="add_book" ng-click="dash.addBook(dash.userInfo.books)">
       <i class="fa fa-plus"></i>
       New Book
     </button>
   </h1>
   <hr>
 
-  <h2>Your Books</h2>
+  <h2 class="section-title">Your Books</h2>
 
   <uib-accordion close-others="dash.oneAtATime">
     <uib-accordion-group ng-repeat="book in dash.userInfo.books" is-open="book.open">

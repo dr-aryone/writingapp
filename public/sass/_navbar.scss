@@ -1,0 +1,29 @@
+.mainnav {
+  @extend .navbar, .navbar-dark, .bg-inverse, .navbar-fixed-top;
+  background-color: #393E41;
+}
+
+.mainnav__items {
+  @extend .nav, .navbar-nav;
+}
+
+.mainnav__item {
+  @extend .nav-item;
+}
+
+.mainnav__link {
+  color: #fff;
+  padding: 1rem 0.5rem;
+  display: inline-block;
+
+  &:hover {
+    color: #B9B9B9;
+    text-decoration: none;
+  }
+}
+
+.mainnav__logo {
+  @extend .navbar-brand;
+  font-family: 'Courgette', cursive;
+  font-size: 2rem;
+}
