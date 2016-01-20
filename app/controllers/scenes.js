@@ -1,12 +1,53 @@
+var Scene = require('mongoose').model('Scene'),
+    Book = require('mongoose').model('Book');
+
 exports.createScene = function (req, res) {
-  res.json({
-    "sceneId": 126, "title": "My Totally New Scene!", "wordCount": 0
+  var scene = new Scene(req.body.content),
+      bookId = req.body.content.bookId;
+
+  scene.save(function (err) {
+    if (err) {
+      return res.status(500).json({ error: err });
+    }
+
+    Book.findById(bookId, function (err, book) {
+      book.scenes.push(scene._id);
+      book.save(function (err) {
+        if (err) {
+          return res.status(500).json({ error: err });
+        }
+
+        return res.status(200).json({ scene });
+      });
+    });
+  });
+};
+
+exports.listAllScenes = function (req, res) {
+  Scene.find({}, function (err, scenes) {
+    if (err) {
+      return res.status(500).json({ error: err });
+    }
+
+    return res.status(200).json(scenes);
   });
 };
 
 exports.deleteScene = function (req, res) {
-  res.json({
-    "msg": "scene " + req.body.sceneId + " was deleted"
+  var bookId = req.query.bookId,
+      sceneId = req.params.sceneId;
+
+  Scene.remove({ _id: sceneId }, function (err) {
+    if (err) {
+      return res.status(500).json({ error: err });
+    }
+
+    Book.findById(bookId, function (err, book) {
+      book.scenes.splice(book.scenes.indexOf(sceneId), 1)[0];
+      book.save(function (err) {
+        return res.status(200).json({ "msg": "scene " + sceneId + " was deleted" });
+      });
+    });
   });
 };
 

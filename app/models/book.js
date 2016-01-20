@@ -7,7 +7,11 @@ var BookSchema = new Schema({
   author: {
     type: Schema.Types.ObjectId,
     ref: 'User'
-  }
+  },
+  scenes: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Scene'
+  }]
 });
 
 mongoose.model('Book', BookSchema);

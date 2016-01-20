@@ -35,9 +35,6 @@ exports.createBook = function (req, res) {
 };
 
 exports.deleteBook = function (req, res) {
-  console.log(req.params.bookId);
-  console.log(req.user);
-
   if (req.user && req.params.bookId) {
     Book.remove({ _id: req.params.bookId }, function (err) {
       if (err) {
@@ -62,7 +59,18 @@ exports.updateBook = function (req, res) {
 };
 
 exports.loadBook = function (req, res) {
-  res.json({
+  Book
+    .findById(req.params.bookId)
+    .populate('scenes')
+    .exec(function (err, book) {
+      if (err) {
+        return res.status(500).json({ error: err });
+      }
+
+      return res.status(200).json(book);
+    });
+
+  /*res.json({
     "_id": req.params.bookId,
     "title": "Some Cool Book #" + req.params.bookId,
     "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -71,5 +79,5 @@ exports.loadBook = function (req, res) {
       { "sceneId": 124, "title": "Cool Action Scene", "wordCount": 800 },
       { "sceneId": 125, "title": "Flashback", "wordCount": 250 }
     ]
-  });
+  });*/
 };

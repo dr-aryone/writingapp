@@ -7,7 +7,7 @@
     Editing Book: <em>{{ book.info.title }}</em>
 
     <div class="pull-right">
-      <a href="/#/scenes/new" class="btn btn-secondary" id="add_scene">
+      <a ng-href="/#/scenes/new?bookId={{ book.info._id }}" class="btn btn-secondary" id="add_scene">
         <i class="fa fa-plus"></i>
         New Scene
       </a>
@@ -32,7 +32,7 @@
   <ul class="list-unstyled" ui-sortable ng-model="book.info.scenes">
     <li ng-repeat="scene in book.info.scenes">
       <h4>
-        <i class="fa fa-times delete-scene" ng-click="book.confirmDelete(scene, book.info.scenes)"></i>
+        <i class="fa fa-times delete-scene" ng-click="book.confirmDelete(book.bookId, scene, book.info.scenes)"></i>
         <a ng-href="/#/scenes/{{ scene.sceneId }}"><i class="fa fa-pencil"></i></a>
         {{ scene.title }}
         <small class="pull-right"><strong>Word Count:</strong> {{ scene.wordCount }}</small>

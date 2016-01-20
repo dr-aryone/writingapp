@@ -31,12 +31,16 @@ router
 
 router
   .route('/scenes')
-  .post(scenes.createScene)
-  .delete(scenes.deleteScene);
+  .post(scenes.createScene);
+
+router
+  .route('/scenes/all')
+  .get(scenes.listAllScenes);
 
 router
   .route('/scenes/:sceneId')
   .post(scenes.updateScene)
-  .get(scenes.readScene);
+  .get(scenes.readScene)
+  .delete(scenes.deleteScene);
 
 module.exports = router;

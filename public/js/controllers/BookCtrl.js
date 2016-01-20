@@ -7,7 +7,7 @@
 
   function BookCtrl (bookInfo, $uibModal, bookService) {
     /*jshint validthis:true */
-    
+
     // method declarations
     this.closeMsg = closeMsg;
     this.confirmDelete = confirmDelete;
@@ -28,7 +28,7 @@
       this.messages.splice(index, 1);
     }
 
-    function confirmDelete (scene, scenesList) {
+    function confirmDelete (bookId, scene, scenesList) {
       var messages = this.messages,
           modalInstance = $uibModal.open({
             animation:    true,
@@ -48,17 +48,17 @@
 
       modalInstance.result.then(function (confirmed) {
         if (confirmed) {
-          deleteScene(scene, scenesList, messages);
+          deleteScene(bookId, scene, scenesList, messages);
         }
       }, function () {
         console.log('Modal dismissed at: ' + new Date());
       });
     }
 
-    function deleteScene (scene, scenesList, messages) {
+    function deleteScene (bookId, scene, scenesList, messages) {
       var newMessage = null;
 
-      bookService.deleteScene(scenesList, scene).then(function (res) {
+      bookService.deleteScene(bookId, scenesList, scene).then(function (res) {
         pushMsg(messages, 'success', 'The scene "' + res.title + '" was successfully deleted.');
       }, function () {
         pushMsg(messages, 'danger', 'Sorry, there was an error deleting "' + res.title + '".');
