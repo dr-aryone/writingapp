@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 var SceneSchema = new Schema({
   title: String,
   wordCount: Number,
-  content: String
+  contents: String
 });
 
 mongoose.model('Scene', SceneSchema);

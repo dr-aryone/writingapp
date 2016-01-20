@@ -74,15 +74,17 @@
       msgList.push(newMessage);
     }
 
-    function saveChanges (book, bookId) {
+    function saveChanges (messages, book, bookId) {
       var self = this;
+
+      console.log('BOOK', self);
 
       bookService.saveBook(book, bookId).then(function (res) {
         self.pushMsg(messages, 'success', 'Your book\'s changes were successfully saved.');
-        isSaving = false;
+        self.isSaving = false;
       }, function (res) {
         self.pushMsg(messages, 'danger', 'There was a problem saving the changes to your book.');
-        isSaving = false;
+        self.isSaving = false;
       });
     }
   }

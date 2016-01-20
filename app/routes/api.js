@@ -17,6 +17,7 @@ router
 router
   .route('/books')
   .get(books.listBooks)
+  .put(books.updateBook)
   .post(books.createBook);
 
 router
@@ -25,13 +26,13 @@ router
 
 router
   .route('/books/:bookId')
-  .post(books.updateBook)
   .get(books.loadBook)
   .delete(books.deleteBook);
 
 router
   .route('/scenes')
-  .post(scenes.createScene);
+  .post(scenes.createScene)
+  .put(scenes.updateScene);
 
 router
   .route('/scenes/all')
@@ -39,7 +40,6 @@ router
 
 router
   .route('/scenes/:sceneId')
-  .post(scenes.updateScene)
   .get(scenes.readScene)
   .delete(scenes.deleteScene);
 

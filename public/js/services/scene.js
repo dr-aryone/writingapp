@@ -7,8 +7,9 @@
 
   function sceneService ($http) {
     var methods = {
+      createScene: createScene,
       getSceneContent: getSceneContent,
-      createScene: createScene
+      saveScene: saveScene
     };
 
     function getSceneContent (sceneId) {
@@ -17,6 +18,10 @@
 
     function createScene (scene) {
       return $http.post('/api/v1/scenes', scene);
+    }
+
+    function saveScene (scene) {
+      return $http.put('/api/v1/scenes', scene);
     }
 
     return methods;

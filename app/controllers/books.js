@@ -47,7 +47,28 @@ exports.deleteBook = function (req, res) {
 };
 
 exports.updateBook = function (req, res) {
-  res.json({
+  var newBook = req.body;
+
+  console.log('BOOK ID', req.body._id);
+
+  Book.findById(req.body._id, function (err, book) {
+    if (err) {
+      res.status(500).json({ error: err });
+    }
+
+    book.summary = newBook.summary;
+    book.title = newBook.title;
+
+    book.save(function (err) {
+      if (err) {
+        res.status(500).json({ error: err });
+      }
+
+      res.status(200).json(book);
+    });
+  });
+
+  /*res.json({
     "_id": req.params.bookId,
     "title": "Some Cool Book #" + req.params.bookId,
     "scenes": [
@@ -55,7 +76,7 @@ exports.updateBook = function (req, res) {
       { "sceneId": 124, "title": "Cool Action Scene", "wordCount": 800 },
       { "sceneId": 125, "title": "Flashback", "wordCount": 250 }
     ]
-  });
+  });*/
 };
 
 exports.loadBook = function (req, res) {

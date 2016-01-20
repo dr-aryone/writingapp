@@ -29,7 +29,7 @@
     }
 
     function saveBook (bookObj, bookId) {
-      return $http.post('/api/v1/books/' + bookId, bookObj);
+      return $http.put('/api/v1/books/', bookObj);
     }
 
     return methods;

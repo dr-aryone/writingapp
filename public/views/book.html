@@ -7,12 +7,12 @@
     Editing Book: <em>{{ book.info.title }}</em>
 
     <div class="pull-right">
-      <a ng-href="/#/scenes/new?bookId={{ book.info._id }}" class="btn btn-secondary" id="add_scene">
+      <a ng-href="/#/scenes/new?bookId={{ book.info._id }}" class="btn btn-sm btn-secondary" id="add_scene">
         <i class="fa fa-plus"></i>
         New Scene
       </a>
 
-      <button class="btn btn-primary" type="button" id="save_book" ng-click="book.saveChanges(book.info, book.bookId)">
+      <button class="btn btn-sm btn-primary" type="button" id="save_book" ng-click="book.saveChanges(book.messages, book.info, book.bookId)">
         <i class="fa fa-save" ng-hide="book.isSaving"></i>
         <i class="fa fa-cog fa-spin" ng-show="book.isSaving"></i>
         Save Changes
@@ -23,7 +23,7 @@
 
   <h2>Description</h2>
 
-  <textarea class="form-control" id="book_description">{{ book.info.summary }}</textarea>
+  <textarea class="form-control" id="book_description" ng-model="book.info.summary"></textarea>
 
   <br>
 
@@ -33,7 +33,7 @@
     <li ng-repeat="scene in book.info.scenes">
       <h4>
         <i class="fa fa-times delete-scene" ng-click="book.confirmDelete(book.bookId, scene, book.info.scenes)"></i>
-        <a ng-href="/#/scenes/{{ scene.sceneId }}"><i class="fa fa-pencil"></i></a>
+        <a ng-href="/#/scenes/{{ scene._id }}?bookId={{ book.bookId }}"><i class="fa fa-pencil"></i></a>
         {{ scene.title }}
         <small class="pull-right"><strong>Word Count:</strong> {{ scene.wordCount }}</small>
       </h4>
